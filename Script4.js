@@ -749,23 +749,740 @@
 // console.log(sumFoundIndexes([5, 10, 2, 15, 20], 2));
 //--------------------------------------------------------
 
-console.log(filterUnique(["abb", "abc", "abcdb", "aea", "bbb"]));
+// const isUnique = (word) => {
+//   let filtered = [...new Set([...word])].join("");
+//   return word === filtered;
+// };
+
+// const filterUnique = (arr) => arr.filter((e) => isUnique(e));
+
+// console.log(filterUnique(["ABCDE", "DDEB", "BED", "CCA", "BAC"]));
 //--------------------------------------------------------
+
+// const evenLast = (arr) => {
+//   if (arr.length === 0) return 0;
+//   let lastValue = arr[arr.length - 1];
+//   return arr.reduce((sum, value, index) => {
+//     if (index % 2 === 0) {
+//       sum += value * lastValue;
+//     }
+//     return sum;
+//   }, 0);
+// };
+
+// console.log(evenLast([0, 1, 2]));
 //--------------------------------------------------------
+
+// const countPosSumNeg = (arr) => {
+//   if (!arr.length) return [];
+//   let countPos = 0;
+//   let sumNeg = 0;
+
+//   arr.forEach((el) => {
+//     if (el > 0) {
+//       countPos++;
+//     } else {
+//       sumNeg += el;
+//     }
+//   });
+//   return [countPos, sumNeg];
+// };
+
+// let arr = [91, -4, 80, -73, -28];
+
+// console.log(countPosSumNeg(arr));
+
 //--------------------------------------------------------
+
+// const sumOfEvens = (arr) => {
+//   return arr.reduce((sum, value) => {
+//     sum += value.reduce((s, e) => {
+//       if (e % 2 === 0) {
+//         s += e;
+//       }
+//       return s;
+//     }, 0);
+
+//     return sum;
+//   }, 0);
+// };
+
+// console.log(
+//   sumOfEvens([
+//     [42, 9],
+//     [16, 8],
+//   ])
+// );
 //--------------------------------------------------------
+
+// Chocolate Dilemma
+
+// const testFairness = (a = [], b = []) => {
+//   function findArea(arr) {
+//     return arr.reduce((sum, value) => {
+//       sum += value.reduce((mul, el) => (mul *= el), 1);
+//       return sum;
+//     }, 0);
+//   }
+
+//   console.log(findArea(a), findArea(b));
+//   return findArea(a) === findArea(b);
+// };
+// console.log(
+//   testFairness(
+//     [
+//       [1, 5],
+//       [6, 3],
+//       [1, 1],
+//     ],
+//     [
+//       [7, 1],
+//       [2, 2],
+//       [1, 1],
+//     ]
+//   )
+// );
+
 //--------------------------------------------------------
+
+// No Hidden Fees
+
+// const hasHiddenFee = (arr, total) => {
+//   function convetToNum(str) {
+//     return parseInt(str.slice(1));
+//   }
+
+//   let totalSum = arr.reduce((sum, e) => (sum += convetToNum(e)), 0);
+//   return totalSum !== convetToNum(total);
+// };
+
+// console.log(hasHiddenFee(["$1"], "$4"));
 //--------------------------------------------------------
+
+// Mini Peaks
+
+// function miniPeaks(arr) {
+//   return arr.filter((e, i) => {
+//     if (i > 0 && i < arr.length - 1) {
+//       if (e > arr[i + 1] && e > arr[i - 1]) {
+//         return true;
+//       }
+//       return false;
+//     }
+//     return false;
+//   });
+// }
+
+// console.log(miniPeaks([1, 2, 1, 1, 3, 2, 5, 4, 4]));
 //--------------------------------------------------------
+
+// Fruit Salad 🍇🍓🍎
+
+// const cutStr = (word) => {
+//   const half = parseInt(word.length / 2);
+
+//   return [word.slice(0, half), word.slice(half)];
+// };
+// const fruitSalad = (arr) => {
+//   return arr
+//     .reduce((newArr, word) => {
+//       return [...newArr, ...cutStr(word)];
+//     }, [])
+//     .sort()
+//     .join("");
+// };
+
+// console.log(fruitSalad(["apple", "pear", "grapes"]));
 //--------------------------------------------------------
+
+//Sum of Two Numbers in Array Equal to Given Number
+
+// const checkSum = (arr, num) => {
+//   for (let i = 0; i < arr.length - 1; i++) {
+//     for (let j = i + 1; j < arr.length; j++) {
+//       if (arr[i] + arr[j] === num) {
+//         return true;
+//       }
+//     }
+//   }
+
+//   return false;
+// };
+
+// console.log(checkSum([2, 8, 9, 12, 45, 78], 1));
 //--------------------------------------------------------
+
+//Increment to Top
+
+// const incrementToTop = (arr) => {
+//   let max = Math.max(...arr);
+//   return arr.reduce((step, v) => (step += max - v), 0);
+// };
+
+// console.log(incrementToTop([3, 10, 3]));
 //--------------------------------------------------------
+// Lonely Integer
+
+// const lonelyInteger = (arr) => {
+//   return arr.find((e) => {
+//     return !arr.includes(-e);
+//   });
+// };
+
+// console.log(lonelyInteger([-9, -105, -9, -9, -9, -9, 105]));
+
 //--------------------------------------------------------
+//Spin Around, Touch The Ground
+
+// const spinAround = (arr) => {};
+
+// console.log(spinAround(["left", "right", "left", "right"]));
 //--------------------------------------------------------
+// Switcharoo
+
+// const flipEndChars = (str) => {
+//   if (typeof str !== "string" || str.length <= 2) {
+//     return "Incompatible";
+//   }
+
+//   let firstChar = str.charAt(0);
+//   let lastChar = str.charAt(str.length - 1);
+
+//   if (firstChar === lastChar) {
+//     return "Two's a pair.";
+//   }
+
+//   str = str.split("");
+//   str[0] = lastChar;
+//   str[str.length - 1] = firstChar;
+//   str = str.join("");
+
+//   return str;
+// };
+
+// console.log(flipEndChars("Cat, dog, and mouse."));
 //--------------------------------------------------------
+
+//Moving to the End
+// const moveToEnd = (arr, num) => {
+//   let newArr = arr.filter((e) => e != num);
+
+//   let gap = arr.length - newArr.length;
+
+//   Array(gap)
+//     .fill(num)
+//     .map((e) => newArr.push(e));
+
+//   return newArr;
+// };
+
+// console.log(moveToEnd(["a", "a", "a", "b"], "a"));
+
 //--------------------------------------------------------
+
+// Simple Encoder
+
+// const simpleEncoder = (str) => {
+//   function countRepeat(searchV) {
+//     return [...str].filter((e) => e === searchV).length;
+//   }
+//   return [...str].map((e) => (countRepeat(e) > 1 ? "]" : "[")).join("");
+// };
+
+// console.log(simpleEncoder("eD  aBiT"));
+
 //--------------------------------------------------------
+
+// Removing Enemies
+
+// const removeEnemies = (arr, enemies) => {
+//   return arr.filter((e) => !enemies.includes(e));
+// };
+
+// console.log(removeEnemies(["John", "Emily", "Steve", "Sam"], ["Sam", "John"]));
 //--------------------------------------------------------
+
+//The Museum of Incredibly DULL Things
+
+// const removeSmallest = (arr) => {
+//   let min = Math.min(...arr);
+//   let findIndexofMin = arr.indexOf(min);
+//   return arr.filter((e, i) => i != findIndexofMin);
+// };
+
+// console.log(removeSmallest([2, 2, 1, 2, 1]));
+//--------------------------------------------------------
+
+//Scalable Mountain?
+
+// const isScalable = (arr) => {
+//   for (let i = 0; i < arr.length - 1; i++) {
+//     let current = arr[i];
+//     let next = arr[i + 1];
+//     let gap = Math.abs(next - current);
+
+//     if (gap > 5) {
+//       return false;
+//     }
+//   }
+
+//   return true;
+// };
+
+// console.log(isScalable([2, 9, 11, 10, 18, 21]));
+//--------------------------------------------------------
+
+// const upwardTrend = (arr) => {
+//   for (let i = 0; i < arr.length - 1; i++) {
+//     let current = arr[i];
+//     let next = arr[i + 1];
+
+//     if (typeof next === "string") {
+//       return "Strings not permitted!";
+//     }
+//     if (current > next) {
+//       return false;
+//     }
+//   }
+
+//   return true;
+// };
+
+// console.log(upwardTrend([1, 2, 3, 6, 7]));
+
+//--------------------------------------------------------
+
+// Numbers to Objects
+
+// const numObj = (arr) => {
+//   return arr.map((value) => {
+//     return { [value]: String.fromCharCode(value) };
+//   });
+// };
+
+// console.log(numObj([118, 103, 110]));
+//--------------------------------------------------------
+
+// Numbered Cards
+
+// const winRound = (arr, arr2) => {
+//   function getHighNumber(arr) {
+//     return arr
+//       .sort((a, b) => (a < b ? 1 : -1))
+//       .filter((e, i) => i < 2)
+//       .join("");
+//   }
+
+//   let myHighNum = parseInt(getHighNumber(arr));
+//   let otherHighNum = parseInt(getHighNumber(arr2));
+//   return myHighNum > otherHighNum;
+// };
+// console.log(winRound([4, 3, 4, 4, 5], [3, 2, 5, 4, 1]));
+
+//--------------------------------------------------------
+//Puzzle Pieces
+
+// const puzzlePieces = (a, b) => {
+//   let result = [];
+//   b.forEach((el, i) => {
+//     result[i] = el + a[i] || 0;
+//   });
+
+//   console.log(result);
+//   return result.every((e) => e == result[0]);
+// };
+
+// console.log(puzzlePieces([9, 8, 7], [7, 8, 9, 10]));
+//--------------------------------------------------------
+
+//An Introduction to the Map-Reduce Pattern
+// const magnitude = (arr) => {
+//   let res = arr.map((e) => e * e).reduce((sum, v) => (sum += v), 0);
+//   return Math.sqrt(res);
+// };
+
+// console.log(magnitude([2, 3, 6, 1, 8]));
+
+//--------------------------------------------------------
+
+//Changing Mixed Types
+
+// const changeTypes = (arr) => {
+//   return arr.map((e) => {
+//     switch (typeof e) {
+//       case "string":
+//         return e.charAt(0).toUpperCase() + e.slice(1) + "!";
+//       case "number":
+//         return e % 2 === 0 ? e + 1 : e;
+//       case "boolean":
+//         return !e;
+//       default:
+//         break;
+//     }
+//   });
+// };
+
+// console.log(changeTypes([false, "false", "true"]));
+
+//--------------------------------------------------------
+//Find Unique Number in Array
+
+// const findSingleNumber = (arr) => {
+//   function checkRepeat(find) {
+//     return arr.filter((e) => e === find).length === 1;
+//   }
+//   return arr.filter((e) => checkRepeat(e));
+// };
+
+// console.log(
+//   findSingleNumber([
+//     1, 2, 3, 6, 5, 4, 4, 2, 5, 3, 6, 1, 6, 5, 3, 2, 4, 1, 2, 5, 1, 4, 3, 6, 101,
+//     4, 3, 1, 5, 6, 2,
+//   ])
+// );
+//--------------------------------------------------------
+
+// Perfect Square Patch
+
+// const squarePatch = (n) => {
+//   return Array(n)
+//     .fill()
+//     .reduce((arr, c, i) => {
+//       arr[i] = Array(n).fill(n);
+//       return arr;
+//     }, []);
+// };
+
+// console.log(squarePatch(0));
+//--------------------------------------------------------
+
+//Count the Towers
+
+// const count_towers = (arr) => {
+//   if (!arr.length) return 0;
+//   return arr[arr.length - 1][0].split("   ").length;
+// };
+
+// console.log(count_towers([]));
+//--------------------------------------------------------
+//Secret Function 4.0
+
+// const secret = (str) => {
+//   str = str.split(".");
+//   return `\`<${str[0]} class="${str.slice(1).join(" ")}"></${str[0]}>\``;
+// };
+
+// console.log(secret("p.one"));
+//--------------------------------------------------------
+
+//Balancing Scales
+
+// const scaleTip = (arr) => {
+//   let index = arr.indexOf("I");
+
+//   let left = 0;
+//   let right = 0;
+
+//   arr.forEach((el, i) => {
+//     if (i < index) {
+//       left += el;
+//     } else if (i > index) {
+//       right += el;
+//     }
+//   });
+
+//   if (right === left) {
+//     return "Balanced";
+//   }
+//   return left > right ? "left" : "right";
+// };
+
+// console.log(scaleTip([]));
+
+//--------------------------------------------------------
+
+//Burglary Series (02): Most Valuable Item
+
+// const mostExpensiveItem = (obj) => {
+//   return Object.keys(obj).sort((a, b) => (obj[a] < obj[b] ? 1 : -1))[0];
+// };
+
+// console.log(
+//   mostExpensiveItem({
+//     tv: 30,
+//     skate: 20,
+//   })
+// );
+//--------------------------------------------------------
+
+//Identical Subarrays
+
+// const countIdentical = (arr) => {
+//   return arr.filter((ar = []) => ar.every((e) => e === ar[0])).length;
+// };
+
+// console.log(
+//   countIdentical([[33, 33], [5], ["a", "a"], [2, 2, 2], [1, 2, 2], [3, 1], []])
+// );
+
+//--------------------------------------------------------
+
+// const isPotentialFriend = (arr, arr2) => {
+//   return arr.filter((e) => arr2.includes(e)).length >= 2;
+// };
+
+// console.log(
+//   isPotentialFriend(
+//     ["cycling", "technology", "drawing"],
+//     ["dancing", "drawing"]
+//   )
+// );
+//--------------------------------------------------------
+
+//Sum of Array Elements Except Itself
+
+// const arrEleSum = (arr) => {
+//   return arr.map((_, index) => {
+//     return arr.reduce((sum, v, i) => {
+//       if (index != i) {
+//         sum += v;
+//       }
+//       return sum;
+//     }, 0);
+//   });
+// };
+
+// console.log(arrEleSum([10, 20, 30, 40, 50, 60]));
+
+//--------------------------------------------------------
+// Tidy Title and Author Strings
+
+// const transform = (arr) =>
+//   arr.map((e) => e.replace("-", ",")).map((e) => e.trim());
+// console.log(
+//   transform([
+//     "     The Catcher in the Rye - J. D. Salinger    ",
+//     "    Brave New World - Aldous Huxley   ",
+//     "    Of Mice and Men - John Steinbeck    ",
+//   ])
+// );
+//--------------------------------------------------------
+
+// Array Multiplier
+
+// function createArr(el, num) {
+//   return Array(num).fill(el);
+// }
+
+// const multiply = (arr) => arr.map((e) => createArr(e, arr.length));
+
+// console.log(multiply(["A", "B", "C", "D", "E"]));
+//--------------------------------------------------------
+
+//Total Count of Numbers in a MultiDimensional Array
+
+// function flatArr(arr) {
+//   return arr.reduce((newArr, el) => {
+//     if (Array.isArray(el)) {
+//       return [...newArr, ...flatArr(el)];
+//     } else {
+//       return [...newArr, el];
+//     }
+//   }, []);
+// }
+
+// const countNumber = (arr) =>
+//   flatArr(arr).filter((e) => typeof e === "number").length;
+
+// console.log(countNumber([["", 17.2, 5, "edabit"]]));
+
+//--------------------------------------------------------
+
+//Edabit Experience Points
+
+// function getCoin(key, value) {
+//   switch (key) {
+//     case "Very Easy":
+//       return value * 5;
+//     case "Easy":
+//       return value * 10;
+//     case "Medium":
+//       return value * 20;
+//     case "Hard":
+//       return value * 40;
+//     case "Very Hard":
+//       return value * 80;
+
+//     default:
+//       return 0;
+//       break;
+//   }
+// }
+
+// const getXP = (obj) => {
+//   return (
+//     Object.entries(obj).reduce((sum, [key, value]) => {
+//       return (sum += getCoin(key, value));
+//     }, 0) + "XP"
+//   );
+// };
+
+// console.log(
+//   getXP({
+//     "Very Easy": 11,
+//     Easy: 0,
+//     Medium: 2,
+//     Hard: 0,
+//     "Very Hard": 27,
+//   })
+// );
+//--------------------------------------------------------
+
+//Cumulative Array Sum
+
+// const getSum = (arr, index) =>
+//   arr.reduce((sum, v, i) => {
+//     if (i <= index) {
+//       sum += v;
+//     }
+//     return sum;
+//   });
+
+// const cumulativeSum = (arr) => {
+//   return arr.map((e, i) => getSum(arr, i));
+// };
+
+// console.log(cumulativeSum([3, 3, -2, 408, 3, 3]));
+
+//--------------------------------------------------------
+
+//Determine If Two Numbers Add up to a Target Value
+// const sumOfTwo = (a, b, v) => {
+//   return a.some((e) => {
+//     return b.some((el) => el + e === v);
+//   });
+// };
+
+// console.log(sumOfTwo([1, 2], [4, 5, 6], 9));
+
+//--------------------------------------------------------
+
+// const getIndices = (arr, v) =>
+//   arr.reduce((newArr, el, i) => {
+//     if (el === v) {
+//       newArr.push(i);
+//     }
+//     return newArr;
+//   }, []);
+
+// console.log(getIndices([1, 5, 5, 2, 7], 8));
+
+//--------------------------------------------------------
+
+//Burglary Series (06): Convert to Numbers
+
+// function convertToNumber(obj) {
+//   return Object.entries(obj).reduce((newObj, [key, value]) => {
+//     return { ...newObj, [key]: parseInt(value) };
+//   }, {});
+// }
+
+// console.log(convertToNumber({ piano: "200", tv: "300", stereo: "400" }));
+//--------------------------------------------------------
+
+//Are the Sum of Digits in the Numbers Equal?
+
+// function sumOfNum(num) {
+//   let sum = 0;
+
+//   while (num > 0) {
+//     let rem = num % 10;
+//     sum += rem;
+//     num = parseInt(num / 10);
+//   }
+//   return sum;
+// }
+
+// const isEqual = (arr) => {
+//   return arr.map((e) => sumOfNum(e)).every((e, _, arr) => e === arr[0]);
+// };
+
+// console.log(isEqual([0, 0]));
+
+//--------------------------------------------------------
+//Back and Forth
+
+// const calculateArrowhead = (arr) => {
+//   let left = 0;
+//   let right = 0;
+
+//   arr
+//     .join("")
+//     .split("")
+//     .forEach((e) => {
+//       if (e === "<") {
+//         left++;
+//       } else {
+//         right++;
+//       }
+//     });
+
+//   if (left > right) {
+//     return "<".repeat(left - right);
+//   }
+//   if (right > left) {
+//     return ">".repeat(right - left);
+//   }
+
+//   return "";
+// };
+
+// console.log(calculateArrowhead([">>>", "<<<"]));
+
+//--------------------------------------------------------
+
+//Intersecting Intervals
+
+// const checkOverLap = (s, e, n) => {
+//   return n === s || n === e || (n > s && n < e);
+// };
+
+// const countOverlapping = (arr, n) => {
+//   return arr.filter((e) => checkOverLap(e[0], e[1], n)).length;
+// };
+
+// console.log(
+//   countOverlapping(
+//     [
+//       [1, 2],
+//       [5, 8],
+//       [6, 9],
+//     ],
+//     7
+//   )
+// );
+//--------------------------------------------------------
+
+//Count the Number of Duplicate Characters
+
+// const countRepeat = (arr, n) => {
+//   let result = arr.filter((e) => e === n);
+//   return result.length - 1;
+// };
+
+// const duplicates = (str) => {
+//   let obj = [...str].reduce((obj, v, i, arr) => {
+//     if (countRepeat(arr, v) >= 1) {
+//       obj[v] = countRepeat(arr, v);
+//     }
+//     return obj;
+//   }, {});
+
+//   return Object.values(obj).reduce((sum, e) => (sum += e), 0);
+// };
+
+// console.log(duplicates("Hello World!"));
+
 //--------------------------------------------------------
 //--------------------------------------------------------
 //--------------------------------------------------------
