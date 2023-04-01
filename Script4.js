@@ -1484,6 +1484,705 @@
 // console.log(duplicates("Hello World!"));
 
 //--------------------------------------------------------
+// Pyramid Arrays
+
+// const pyramidArrays = (num) => {
+//   return Array(num)
+//     .fill()
+//     .map((e, i) => Array(i + 1).fill(i + 1));
+// };
+
+// console.log(pyramidArrays(0));
+//--------------------------------------------------------
+// Letters Shared between Two Words
+
+// const sharedLetters = (a, b) => {
+//   return [...a].filter((e) => b.includes(e)).length;
+// };
+
+// console.log(sharedLetters("spout", "shout"));
+
+//--------------------------------------------------------
+
+//Digit Distance
+
+// const digitDistance = (a, b) => {
+//   a = a.toString();
+//   b = b.toString();
+
+//   if (a.length !== b.length) return false;
+
+//   return [...a]
+//     .map((e, i) => Math.abs(e - b.charAt(i)))
+//     .reduce((sum, v) => (sum += parseInt(v)), 0);
+// };
+
+// console.log(digitDistance(12, 12));
+
+//--------------------------------------------------------
+
+//Height of the Tallest Building
+
+// const cuntBlock = (str) => {
+//   return [...str.trim()].filter((e) => e === "#").length;
+// };
+
+// const tallestBuildingHeight = (arr) => {
+//   let data = arr
+//     .filter((e) => e.trim() !== "")
+//     .map((e, i) => {
+//       return { [i + 1]: cuntBlock(e) };
+//     });
+
+//   let sorted = data.sort((a, b) => (data[a] < data[b] ? 1 : -1));
+
+//   console.log(sorted);
+
+//   return parseInt(Object.keys(sorted[0])[0]) * 20;
+// };
+
+// console.log(
+//   tallestBuildingHeight([
+//     "                              ",
+//     "                         ###  ",
+//     "                         ###  ",
+//     "###                    #####  ",
+//     "###      #             #####  ",
+//     "###     ###            #####  ",
+//     "######  ###            #######",
+//     "######  ######  ###    #######",
+//     "###################    #######",
+//     "###############################",
+//     "###############################",
+//   ])
+// );
+//--------------------------------------------------------
+
+//Good Match?
+
+// const isGoodMatch = (arr) => {
+//   if (arr.length % 2 !== 0) return "Bad Match";
+
+//   let newArr = [];
+
+//   for (let index = 0; index < arr.length; index += 2) {
+//     const element = arr[index];
+//     const nextElement = arr[index + 1];
+//     newArr.push(element + nextElement);
+//   }
+
+//   return newArr;
+// };
+
+// console.log(isGoodMatch([5, 7, 9, -1, 4, 2]));
+//--------------------------------------------------------
+
+//Largest Gap
+
+// const largestGap = (arr) => {
+//   let max = 0;
+//   let sortedArr = arr.sort((a, b) => (a > b ? 1 : -1));
+
+//   for (let i = 1; i < sortedArr.length; i++) {
+//     const previousElement = sortedArr[i - 1];
+//     const element = sortedArr[i];
+
+//     let gap = element - previousElement;
+//     if (gap > max) {
+//       max = gap;
+//     }
+//   }
+//   return max;
+// };
+
+// console.log(largestGap([13, 3, 8, 5, 5, 2, 13, 6, 14, 2, 11, 4, 10, 8, 1, 9]));
+//--------------------------------------------------------
+
+//Left, Right Shift
+
+// const leftShift = (arr = [], n) => {
+//   Array(n)
+//     .fill("")
+//     .forEach((e) => {
+//       arr.push(arr.shift());
+//     });
+
+//   return arr;
+// };
+// const rightShift = (arr = [], n) => {
+//   Array(n)
+//     .fill("")
+//     .forEach((e) => {
+//       arr.unshift(arr.pop());
+//     });
+
+//   return arr;
+// };
+
+// console.log(leftShift([1, 2, 3, 4, 5], 6));
+// console.log(rightShift([1, 2, 3, 4], 1));
+
+//--------------------------------------------------------
+//Product of All Other Numbers
+
+// const calProduct = (arr, index) => {
+//   return arr.reduce((mul, val, i) => (mul *= index != i ? val : 1), 1);
+// };
+// const getProducts = (arr) => {
+//   return arr.map((e, i) => calProduct(arr, i));
+// };
+
+// console.log(getProducts([1, 2, 3, 0, 5]));
+
+//--------------------------------------------------------
+//Longest Daily Streak
+
+// const dailyStreak = (arr) => {
+//   let max = 0;
+//   let record = [];
+//   arr.forEach((el) => {
+//     if (el) {
+//       max += 1;
+//     } else {
+//       record.push(max);
+//       max = 0;
+//     }
+//   });
+
+//   record.push(max);
+
+//   return Math.max(...record);
+// };
+
+// console.log(dailyStreak([true, true, true, false, true, true, true, true]));
+
+//--------------------------------------------------------
+
+// ################################################################################ NOT COMPLETED #######################################################################
+// Likes vs. Dislikes
+
+// YouTube currently displays a like and a dislike button, allowing you to express your opinions about particular content. It's set up in such a way that you cannot like and dislike a video at the same time.
+
+// There are two other interesting rules to be noted about the interface:
+
+// Pressing a button, which is already active, will undo your press.
+// If you press the like button after pressing the dislike button, the like button overwrites the previous "dislike" state. The same is true for the other way round.
+// Create a function that takes an array of button inputs and returns the final state.
+
+// Examples
+// likeOrDislike(["Dislike"]) ➞ "Dislike"
+
+// likeOrDislike(["Like", "Like"]) ➞ "Nothing"
+
+// likeOrDislike(["Dislike", "Like"]) ➞ "Like"
+
+// likeOrDislike(["Like", "Dislike", "Dislike"]) ➞ "Nothing"
+
+//--------------------------------------------------------
+
+//Merge Two Arrays
+
+// const mergeArrays = (ar1, ar2) => {
+//   let result = [];
+//   let len = Math.max(ar1.length, ar2.length);
+
+//   for (let i = 0; i < len; i++) {
+//     if (ar1[i]) {
+//       result.push(ar1[i]);
+//     }
+//     if (ar2[i]) {
+//       result.push(ar2[i]);
+//     }
+//   }
+
+//   return result;
+// };
+
+// console.log(mergeArrays(["a", "b", "c", "d", "e"], [1, 2, 3, 4, 5]));
+
+//--------------------------------------------------------
+//The Bottom of the Matrix
+
+// const replace = (arr, index) => arr.map((e, i) => (i <= index ? e : 0));
+
+// function lowerTriang(arr) {
+//   return arr.map((ar, i) => replace(ar, i));
+// }
+
+// console.log(
+//   lowerTriang([
+//     [1, 8, 8, 1],
+//     [2, 7, 7, 2],
+//     [3, 6, 6, 3],
+//     [4, 5, 5, 4],
+//   ])
+// );
+
+//--------------------------------------------------------
+
+// const remix = (str, arr) => {
+//   let result = [];
+//   arr.forEach((element, i) => {
+//     result[element] = str[i];
+//   });
+
+//   return result.join("");
+// };
+
+// console.log(remix("computer", [0, 2, 1, 5, 3, 6, 7, 4]));
+//--------------------------------------------------------
+
+//Mini Sudoku
+
+// const flat = (arr = []) => {
+//   return arr.reduce((newArr, el) => {
+//     if (Array.isArray(el)) {
+//       return [...newArr, ...flat(el)];
+//     } else {
+//       return [...newArr, el];
+//     }
+//   }, []);
+// };
+
+// const isMiniSudoku = (arr) => {
+//   let res = flat(arr);
+//   let removeDuplicate = [...new Set(res)];
+
+//   if (res.length !== removeDuplicate.length) {
+//     return false;
+//   }
+
+//   return res.every((e) => e <= 9 && e >= 1);
+// };
+
+// console.log(
+//   isMiniSudoku([
+//     [8, 9, 2],
+//     [5, 6, 1],
+//     [3, 7, 4],
+//   ])
+// );
+
+//--------------------------------------------------------
+
+//Matrix Subtraction
+
+// const subtract = (a, b) => {
+//   return a.map((e, i) => e - b[i]);
+// };
+
+// const sub = (a = [], b = []) => {
+//   return a.map((ar1, index) => subtract(ar1, b[index]));
+// };
+
+// console.log(
+//   sub(
+//     [
+//       [2, 2, 3],
+//       [4, 6, 6],
+//       [7, 8, 10],
+//     ],
+//     [
+//       [1, 2, 3],
+//       [4, 5, 6],
+//       [7, 8, 9],
+//     ]
+//   )
+// );
+//--------------------------------------------------------
+
+//Number of Two or More Consecutive Ones
+
+// ############################################################################# NOT COMPLETED #####################################################################
+
+// const countOnes = (arr) => {
+//   let count = 0;
+//   let bool = false;
+
+//   arr.forEach((el) => {
+//     if (el === 1) {
+//       if (bool) {
+//         count++;
+//         bool = false;
+//       } else {
+//         bool = true;
+//       }
+//     }
+//     if (el === 0) {
+//       bool = false;
+//     }
+//   });
+
+//   return count;
+// };
+
+// console.log(countOnes([[1, 1, 1, 1, 0, 0, 0, 0]]));
+
+//--------------------------------------------------------
+
+//Accumulating Product
+// const getProduct = (arr, index) => {
+//   return arr.reduce((mul, v, i) => {
+//     if (i <= index) {
+//       mul *= v;
+//     }
+//     return mul;
+//   }, 1);
+// };
+
+// const accumulatingProduct = (arr) => {
+//   return arr.map((e, i) => getProduct(arr, i));
+// };
+
+// console.log(accumulatingProduct([1, 2, 3, 4]));
+
+//--------------------------------------------------------
+//Spicy Food
+
+// const billSplit = (food, amt) => {
+//   let myAmt = 0;
+//   let myFriendAmt = 0;
+
+//   food.forEach((f, i) => {
+//     if (f === "S") {
+//       myAmt += amt[i];
+//     } else {
+//       let halfAmt = amt[i] / 2;
+//       myAmt += halfAmt;
+//       myFriendAmt += halfAmt;
+//     }
+//   });
+
+//   return [myAmt, myFriendAmt];
+// };
+
+// console.log(billSplit(["S", "N"], [41, 10]));
+//--------------------------------------------------------
+//Word Builder
+
+// const wordBuilder = (word, position) => {
+//   let newWord = [];
+
+//   position.forEach((e, i) => {
+//     newWord[e] = word[i];
+//   });
+
+//   return newWord.join("");
+// };
+
+// console.log(wordBuilder(["g", "e", "o"], [1, 0, 2]));
+//--------------------------------------------------------
+
+//Ranged Reversal
+
+// const rangedReversal = (arr, start, end) => {
+//   let a = arr.slice(0, start);
+//   let b = arr.slice(start, end + 1).reverse();
+//   let c = arr.slice(end + 1);
+
+//   return a.concat(b, c);
+// };
+
+// console.log(rangedReversal([9, 8, 7, 4], 0, 0));
+
+//--------------------------------------------------------
+//Playing RisiKo!
+
+// ############################################################################# NOT COMPLETED #####################################################################
+
+//--------------------------------------------------------
+// Partially Hidden String
+
+// const replaceChar = (str) => {
+//   return [...str]
+//     .map((e, i) => {
+//       if (i === 0 || i === str.length - 1) {
+//         return e;
+//       }
+//       return "-";
+//     })
+//     .join("");
+// };
+
+// const partiallyHide = (str) => {
+//   return str
+//     .split(" ")
+//     .map((e) => replaceChar(e))
+//     .join(" ");
+// };
+
+// console.log(partiallyHide("Harry went to fight the basilisk"));
+//--------------------------------------------------------
+
+//Lottery Ticket
+
+// const checMiniWin = ([str, num]) => {
+//   let res = [...str].some((e) => e.charCodeAt(0) === num) ? 1 : 0;
+//   return res;
+// };
+
+// const lottery = (arr, otherScore) => {
+//   let myScore = arr.reduce((sum, e) => (sum += checMiniWin(e)), 0);
+//   return myScore > otherScore ? "Winner" : "Looser";
+// };
+
+// console.log(
+//   lottery(
+//     [
+//       ["ZSAMZB", 81],
+//       ["XWWCXP", 72],
+//       ["SYBRQOHP", 88],
+//       ["HJSVV", 75],
+//     ],
+//     1
+//   )
+// );
+//--------------------------------------------------------
+
+//Fix The Error: Array Reduce
+
+// const calculateSum = (str) => {
+//   return [...str].reduce((sum, e) => (sum += e.charCodeAt(0)), 0);
+// };
+
+// console.log(calculateSum("a"));
+
+// const reverseString = (str) => {
+//   return [...str].reduce(
+//     (newStr, e, i, arr) => (newStr += arr[arr.length - 1 - i]),
+//     ""
+//   );
+// };
+
+// console.log(reverseString("hello"));
+
+//--------------------------------------------------------
+
+//Evaluating Factorials
+
+// const fac = (n) => {
+//   if (n === 1) {
+//     return 1;
+//   }
+//   return n * fac(n - 1);
+// };
+
+// const evalFactorial = (arr) => {
+//   return arr.reduce((sum, e) => (sum += fac(e)), 0);
+// };
+
+// console.log(evalFactorial([5, 4, 2]));
+//--------------------------------------------------------
+
+//Index Filtering
+
+// const indexFilter = (arr, str) => {
+//   return arr.map((e) => str.at(e)).join("");
+// };
+
+// console.log(
+//   indexFilter([4, -7, -13, -11, -2, 0], "Relax and stay calm to avoid failures")
+// );
+
+//--------------------------------------------------------
+
+//Construct and Deconstruct
+
+// String.prototype.construct = function () {
+//   return this.split("").map((e, i) => this.slice(0, i + 1));
+// };
+
+// const constructDeconstruct = (str) => {
+//   return str.construct().concat(str.construct().reverse());
+// };
+
+// console.log(constructDeconstruct("the sun"));
+
+//--------------------------------------------------------
+//Total Sales of Product
+
+// const totalSales = (arr, p) => {
+//   let index = arr[0].findIndex((e) => e == p);
+
+//   if (index === -1) return "PRODUCT NOT FOUND";
+
+//   return arr.slice(1).reduce((sum, e) => (sum += e[index]), 0);
+// };
+
+// console.log(
+//   totalSales(
+//     [
+//       ["A", "B", "C"],
+//       [2, 7, 1],
+//       [3, 6, 6],
+//       [4, 5, 5],
+//     ],
+//     "C"
+//   )
+// );
+
+//--------------------------------------------------------
+
+// const getBirthdayCake = (str, age) => {
+//   let border = age % 2 === 0 ? "#" : "*";
+//   let birthDayLine = `${border} ${age} Happy Birthday ${str}! ${age} ${border}`;
+//   let len = birthDayLine.length;
+//   return [border.repeat(len), birthDayLine, border.repeat(len)];
+// };
+
+// console.log(getBirthdayCake("Russell", 19));
+
+//--------------------------------------------------------
+
+//N-Sized Parts
+// const partition = (word, n) => {
+//   let res = [];
+
+//   for (let i = 0; i < word.length; i += n) {
+//     res.push(word.slice(i, i + n));
+//   }
+
+//   return res;
+// };
+
+// console.log(partition("chews", 2));
+//--------------------------------------------------------
+
+//Sort By Index of Character
+
+// const sortByCharacter = (arr, n) =>
+//   arr.sort((a, b) => (a[n - 1] > b[n - 1] ? 1 : -1));
+
+// console.log(sortByCharacter(["mayor", "apple", "petal"], 5));
+//--------------------------------------------------------
+
+// const seesaw = (num) => {
+//   num = num.toString();
+
+//   let first, second;
+//   let l = num.length;
+//   let half = l / 2;
+
+//   if (l % 2 === 0) {
+//     first = parseInt(num.slice(0, half));
+//     second = parseInt(num.slice(half));
+//   } else {
+//     first = parseInt(num.slice(0, Math.floor(half)));
+//     second = parseInt(num.slice(Math.ceil(half)));
+//   }
+
+//   if (first === second) return "Balanced";
+//   return first > second ? "left" : "right";
+// };
+
+// console.log(seesaw(585585));
+//--------------------------------------------------------
+
+//Percentage of Box Filled In
+
+// const percentFilled = (arr) => {
+//   let totalSpace = arr[0].length * arr.length;
+//   let totalFilledBlock = 0;
+//   let totalUsedSpace = 0;
+
+//   arr.forEach((str) => {
+//     [...str].forEach((e) => {
+//       if (e === "#") {
+//         totalFilledBlock++;
+//       } else if (e === "o") {
+//         totalUsedSpace++;
+//       }
+//     });
+//   });
+
+//   let total = (totalUsedSpace / (totalSpace - totalFilledBlock)) * 100;
+
+//   return total;
+// };
+
+// console.log(
+//   percentFilled(["######", "#ooo #", "#oo  #", "#    #", "#    #", "######"])
+// );
+//--------------------------------------------------------
+
+//Get the Diagonals
+
+// const getDiagonals = (arr = []) => {
+//   let diagonal1 = arr.map((e, i) => e[i]);
+//   let diagonal2 = arr.map((e, i) => e[arr.length - 1 - i]);
+//   return [diagonal1, diagonal2];
+// };
+
+// // console.log(
+// //   getDiagonals([
+// //     ["a", "b", "c"], // i= 2 - 0 => 2-0 => 2
+// //     ["d", "e", "f"], // i= 1 - 1 => 3-1 =>2-i => 1
+// //     ["g", "h", "i"], // i= 0 - 2 => 3-1 =>2 -2 =>0
+// //   ])
+// // );
+
+// console.log(getDiagonals([[true]]));
+
+//--------------------------------------------------------
+
+// const sockMerchant = (arr) => {
+//   let obj = arr.reduce((ob, v) => {
+//     if (v in ob) {
+//       ob[v] += 1;
+//     } else {
+//       ob[v] = 1;
+//     }
+//     return ob;
+//   }, {});
+
+//   return Object.entries(obj).reduce((sum, [key, val]) => {
+//     if (val >= 2) {
+//       sum += parseInt(val / 2);
+//     }
+//     return sum;
+//   }, 0);
+// };
+// console.log(sockMerchant([50, 20, 30, 90, 30, 20, 50, 20, 90]));
+//--------------------------------------------------------
+
+//Strictly Increasing or Decreasing
+
+const check = (arr) => {
+  let res = "";
+
+  for (let i = 0; i < arr.length - 1; i++) {
+    let c_el = arr[i];
+    let n_el = arr[i + 1];
+
+    if (c_el < n_el) {
+      if (res === "decreasing") {
+        return "neither";
+      }
+      res = "increasing";
+    } else if (c_el > n_el) {
+      if (res === "increasing") {
+        return "neither";
+      }
+      res = "decreasing";
+    } else {
+      return "neither";
+    }
+  }
+
+  return res;
+};
+
+console.log(check([1, 2, 3]));
+
+//--------------------------------------------------------
+//--------------------------------------------------------
+//--------------------------------------------------------
+//--------------------------------------------------------
+//--------------------------------------------------------
+//--------------------------------------------------------
+//--------------------------------------------------------
+//--------------------------------------------------------
+//--------------------------------------------------------
 //--------------------------------------------------------
 //--------------------------------------------------------
 //--------------------------------------------------------
