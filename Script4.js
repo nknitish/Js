@@ -2147,44 +2147,48 @@
 
 //Strictly Increasing or Decreasing
 
-const check = (arr) => {
-  let res = "";
+// const check = (arr) => {
+//   let res = "";
 
-  for (let i = 0; i < arr.length - 1; i++) {
-    let c_el = arr[i];
-    let n_el = arr[i + 1];
+//   for (let i = 0; i < arr.length - 1; i++) {
+//     let c_el = arr[i];
+//     let n_el = arr[i + 1];
 
-    if (c_el < n_el) {
-      if (res === "decreasing") {
-        return "neither";
-      }
-      res = "increasing";
-    } else if (c_el > n_el) {
-      if (res === "increasing") {
-        return "neither";
-      }
-      res = "decreasing";
-    } else {
-      return "neither";
-    }
-  }
+//     if (c_el < n_el) {
+//       if (res === "decreasing") {
+//         return "neither";
+//       }
+//       res = "increasing";
+//     } else if (c_el > n_el) {
+//       if (res === "increasing") {
+//         return "neither";
+//       }
+//       res = "decreasing";
+//     } else {
+//       return "neither";
+//     }
+//   }
 
-  return res;
-};
+//   return res;
+// };
 
-console.log(check([1, 2, 3]));
+// console.log(check([1, 2, 3]));
 
 //--------------------------------------------------------
-//--------------------------------------------------------
-//--------------------------------------------------------
-//--------------------------------------------------------
-//--------------------------------------------------------
-//--------------------------------------------------------
-//--------------------------------------------------------
-//--------------------------------------------------------
-//--------------------------------------------------------
-//--------------------------------------------------------
-//--------------------------------------------------------
-//--------------------------------------------------------
-//--------------------------------------------------------
+
+//An Ordered Matrix
+
+// const createArr = (index, col) =>
+//   Array(col)
+//     .fill()
+//     .map((_, i) => col * index + i + 1);
+
+// const orderedMatrix = (a, b) => {
+//   return Array(a)
+//     .fill()
+//     .map((_, i) => createArr(i, b));
+// };
+
+// console.log(orderedMatrix(5, 5));
+
 //--------------------------------------------------------
