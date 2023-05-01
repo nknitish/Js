@@ -1,6 +1,5 @@
 // const getExtension = (fileName) => {
 //   let index = [...fileName].find((e) => e === ".");
-//   console.log({ index });
 //   if (index === -1) return false;
 //   return fileName.substring(index);
 // };

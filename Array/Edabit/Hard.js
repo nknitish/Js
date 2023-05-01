@@ -766,9 +766,9 @@
 
 // console.log(
 //   isGoalScored([
-//     ["  #0    #  "],
 //     ["  #     #  "],
 //     ["  #     #  "],
+//     ["  #  0  #  "],
 //     ["  #######  "],
 //     ["     #     "],
 //     ["     #     "],
@@ -815,15 +815,186 @@
 
 // console.log(diamondArrays(5));
 //--------------------------------------------------------
+
+//41 Balanced Array
+
+// const balanced = (arr) => {
+//   let firstHalf = arr.slice(0, arr.length / 2);
+//   let secondHalf = arr.slice(arr.length / 2);
+
+//   let firsHalfSum = firstHalf.reduce((sum, a) => (sum += a), 0);
+//   let secondHalfSum = secondHalf.reduce((sum, a) => (sum += a), 0);
+
+//   if (firsHalfSum === secondHalfSum) {
+//     return arr;
+//   }
+//   if (firsHalfSum > secondHalfSum) {
+//     return firstHalf.concat(firstHalf);
+//   }
+//   return secondHalf.concat(secondHalf);
+// };
+
+// console.log(balanced([7, 5, 2, 6, 1, 0, 1, 5, 2, 7, 0, 6]));
+
 //--------------------------------------------------------
+
+//42 Building a Staircase
+
+// const buildStaircase = (n, char) => {
+//   function createStair(n, index, char) {
+//     return Array(n)
+//       .fill()
+//       .map((e, i) => (i <= index ? char : "_"));
+//   }
+//   return Array(n)
+//     .fill()
+//     .map((e, i) => createStair(n, i, char));
+// };
+
+// console.log(buildStaircase(4, "A"));
+
 //--------------------------------------------------------
+
+//43 Matrix Transpose
+
+// const makeTranspose = (arr) => {
+//   return arr.reduce((newArr, ar, i) => {
+//     newArr[i] = arr.map((e) => e[i]);
+//     return newArr;
+//   }, []);
+// };
+
+// console.log(
+//   makeTranspose([
+//     [1, 2, 3],
+//     [4, 5, 6],
+//     [7, 8, 9],
+//   ])
+// );
+
 //--------------------------------------------------------
+
+//44 Modify Words
+
+// Array.prototype.reverse = function () {
+//   return this.map((e, i) => this[this.length - 1 - i]);
+// };
+
+// const modify = (str) => {
+//   return [...str].reverse().join("");
+// };
+
+// const editWords = (arr) => {
+//   return arr.map((e) => modify(e.toUpperCase()));
+// };
+
+// console.log(editWords(["null", "undefined"]));
+
 //--------------------------------------------------------
+//45 Burglary Series (05): Third Most Expensive
+
+// const thirdMostExpensive = (obj) => {
+//   let arr = Object.keys(obj);
+
+//   if (arr.length < 3) {
+//     return false;
+//   }
+
+//   return arr.sort((a, b) => (obj[a] > obj[b] ? 1 : -1));
+// };
+
+// console.log(
+//   thirdMostExpensive({ piano: 1000, tv: 500, ball: 10, mirror: 200 })
+// );
+
 //--------------------------------------------------------
+
+//46 Beginning and End Pairs
+
+// const pairs = (arr = []) => {
+//   let result = [];
+
+//   while (arr.length) {
+//     if (arr.length !== 1) {
+//       let first = arr.shift();
+//       let last = arr.pop();
+//       result.push([first, last]);
+//     } else {
+//       let first = arr.shift();
+//       result.push([first, first]);
+//     }
+//   }
+
+//   return result;
+// };
+
+// console.log(pairs([1, 2, 3, 5, 6, 7]));
+
 //--------------------------------------------------------
+
+//47 Letter Occurrences Per Word
+
+// const findOccurrences = (str, char) => {
+//   return str.split(" ").reduce((obj, word) => {
+//     obj[word.toLowerCase()] = [...word].filter(
+//       (e) => e.toLowerCase() === char.toLowerCase()
+//     ).length;
+//     return obj;
+//   }, {});
+// };
+
+// console.log(
+//   findOccurrences("An APPLE a day keeps an Archeologist AWAY...", "A")
+// );
+
 //--------------------------------------------------------
+
+//48 Round to Closest N
+
+// function roundNumber(num, n) {
+//   let quotient = Math.floor(num / n);
+//   let lowerNum = n * quotient;
+//   let upperNum = n * (quotient + 1);
+//   if (Math.abs(num - lowerNum) < Math.abs(num - upperNum)) {
+//     return lowerNum;
+//   } else if (Math.abs(num - upperNum) < Math.abs(num - lowerNum)) {
+//     return upperNum;
+//   } else {
+//     return Math.max(lowerNum, upperNum);
+//   }
+// }
+
+// console.log(roundNumber(46, 7));
+
 //--------------------------------------------------------
+
+//49 Spaces Apart
+
+// const spaceApart = (arr = []) => {
+//   let firsIndex = arr.indexOf("1");
+//   let lastIndex = arr.lastIndexOf("1");
+
+//   if (firsIndex == lastIndex) {
+//     return "Invalid";
+//   }
+
+//   let sum = 0;
+//   for (let i = firsIndex + 1; i < lastIndex; i++) {
+//     const element = arr[i];
+//     if (element > 0) {
+//       sum += element;
+//     } else {
+//       return "Invalid";
+//     }
+//   }
+
+//   return sum;
+// };
+
+// console.log(spaceApart([3, 2, 9, "1", 0, 0, -1, "1"]));
+
 //--------------------------------------------------------
+
 //--------------------------------------------------------
 //--------------------------------------------------------
 //--------------------------------------------------------
