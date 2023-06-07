@@ -112,5 +112,26 @@
 // });
 
 //=======================================================
+
+//Promise.race
+
+// const sleep = (t) =>
+//   new Promise((res) =>
+//     setTimeout(() => {
+//       res(t);
+//     }, t)
+//   );
+
+// async function promiseRace(arr = []) {
+//   return await Promise.all(arr);
+// }
+
+// // sleep(5000)
+// //   .then((res) => console.log(res))
+// //   .catch((e) => console.log("Error", e));
+
+// promiseRace([sleep(1000), sleep(5000)])
+//   .then((res) => console.log(res))
+//   .catch((e) => console.log("Error", e));
 //=======================================================
 //=======================================================
